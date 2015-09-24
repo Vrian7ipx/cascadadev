@@ -1,0 +1,86 @@
+
+<?php $__env->startSection('content'); ?> 
+	
+	
+	<?php if (!$product->trashed()): ?>		
+	<div class="pull-right">
+		<?php echo Former::open('products/bulk')->addClass('mainForm'); ?>
+		<div style="display:none">
+			<?php echo Former::text('action'); ?>
+			<?php echo Former::text('id')->value($product->public_id); ?>
+		</div>
+
+		<?php echo DropdownButton::normal(trans('texts.option_product'),
+			  Navigation::links(
+			    [
+			      [trans('texts.edit_product'), URL::to('products/' . $product->public_id . '/edit')],
+			      [Navigation::DIVIDER],
+			      [trans('texts.archive_product'), "javascript:onArchiveClick()"],
+			      [trans('texts.delete_product'), "javascript:onDeleteClick()"],
+			    ]
+			  )
+			, ['id'=>'normalDropDown'])->split();; ?>	
+
+	</div>
+	<?php endif; ?>
+
+	<div class="row">
+
+		<div class="col-md-8">
+			<table class="table" style="width:100%">
+				<tr>
+					<td><h3><strong>Nombre Producto </strong> : <?php echo $product->getDisplayName(); ?></h3></td>				
+				</tr>
+			</table>
+
+			
+		</div>
+
+	</div>
+
+	<div class="row">
+
+		<div class="col-md-3">
+			<h3><?php echo trans('texts.details'); ?></h3>
+			<p><strong>Código Nº </strong> : <?php echo $product->getProductKey(); ?></p>
+			<p><strong>Tipo de Envase </strong> : <?php echo $product->getPackTypes(); ?></p>
+			<p><strong>ICE </strong> : <?php echo $product->getIce(); ?></p>
+			<p><strong>Volumen CC </strong> : <?php echo $product->getCc(); ?></p>
+
+		</div>
+
+		<div class="col-md-3">
+			<h3><?php echo trans('texts.prices'); ?></h3>
+			
+		  	<?php foreach ($product->prices as $price): ?>		  	
+		  		
+		  		<?php echo $price->getDetails(); ?>		 
+
+		  	<?php endforeach; ?>			
+		</div>
+
+
+	</div>
+
+	<p>&nbsp;</p>
+
+	
+	<script type="text/javascript">
+
+
+	function onArchiveClick() {
+		$('#action').val('archive');
+		$('.mainForm').submit();
+	}
+
+	function onDeleteClick() {
+		if (confirm("<?php echo trans('texts.are_you_sure'); ?>")) {
+			$('#action').val('delete');
+			$('.mainForm').submit();
+		}		
+	}
+
+	</script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

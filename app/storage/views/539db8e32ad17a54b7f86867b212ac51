@@ -1,0 +1,9 @@
+<?php echo trans('texts.email_salutation', ['name' => $user->username]); ?> <p/>
+
+<?php echo trans('texts.reset_password'); ?> <br/> 
+<?php echo e((Confide::checkAction('UserController@reset_password', array($token))) ? : URL::to('user/reset/'.$token)); ?><p/>
+
+<?php echo trans('texts.email_signature'); ?> <br/>
+<?php echo trans('texts.email_from'); ?> <p/>
+
+<?php echo trans('texts.reset_password_footer'); ?> <p/>

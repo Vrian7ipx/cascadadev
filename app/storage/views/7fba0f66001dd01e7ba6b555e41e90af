@@ -1,0 +1,82 @@
+
+<?php $__env->startSection('content'); ?>
+
+<div class="row">
+  <div class="col-md-4">  
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <img src="<?php echo asset('images/totalincome.png'); ?>" class="in-image"/>  
+        <div class="in-bold">
+          <?php echo $totalIncome; ?>
+        </div>
+        <div class="in-thin">
+          <?php echo trans('texts.in_total_revenue'); ?>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <img src="<?php echo asset('images/clients.png'); ?>" class="in-image"/>  
+        <div class="in-bold">
+          <?php echo $billedClients; ?>
+        </div>
+        <div class="in-thin">
+          <?php echo Utils::pluralize('billed_client', $billedClients); ?>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <img src="<?php echo asset('images/totalinvoices.png'); ?>" class="in-image"/>  
+        <div class="in-bold">
+          <?php echo $invoicesSent; ?>
+        </div>
+        <div class="in-thin">
+          <?php echo Utils::pluralize('invoice', $invoicesSent); ?><br>emitidas          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<p>&nbsp;</p>
+
+<div class="row">
+  <div class="col-md-6">  
+    <div class="panel panel-default dashboard" style="min-height:320px">
+      <div class="panel-heading" style="background-color:#0b4d78">
+        <h3 class="panel-title in-bold-white">
+          <i class="glyphicon glyphicon-exclamation-sign"></i> <?php echo trans('texts.notifications'); ?>
+        </h3>
+      </div>
+      <ul class="panel-body list-group">
+      <?php foreach ($activities as $activity): ?>
+        <li class="list-group-item">
+          <span style="color:#888;font-style:italic"><?php echo Utils::timestampToDateString(strtotime($activity->created_at)); ?>:</span>
+          <?php echo Utils::decodeActivity($activity->message); ?>
+        </li>
+      <?php endforeach; ?>
+      </ul>
+    </div>  
+  </div>
+  <div class="col-md-3">
+    <div class="active-clients">      
+      <div class="in-bold in-white" style="font-size:42px"><?php echo $activeClients; ?></div>
+      <div class="in-thin in-white"><?php echo Utils::pluralize('active_client', $activeClients); ?></div>
+    </div>
+      </div>
+    <div class="col-md-3">
+    <div class="average-invoice">  
+      <div><b><?php echo trans('texts.average_invoice'); ?></b></div>
+      <div class="in-bold in-white" style="font-size:42px"><?php echo $invoiceAvg; ?></div>
+    </div>
+      
+  </div> 
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

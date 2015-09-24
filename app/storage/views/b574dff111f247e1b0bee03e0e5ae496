@@ -1,0 +1,43 @@
+
+<?php $__env->startSection('content'); ?>	
+	@parent
+	<?php echo $__env->make('accounts.nav_advanced', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+	<?php echo Former::open()->addClass('col-md-8 col-md-offset-2 warn-on-exit'); ?>
+	<?php echo Former::populate($account); ?>
+	<?php echo Former::populateField('custom_invoice_taxes1', intval($account->custom_invoice_taxes1)); ?>
+	<?php echo Former::populateField('custom_invoice_taxes2', intval($account->custom_invoice_taxes2)); ?>
+
+	<?php echo Former::legend('invoice_fields'); ?>
+	<?php echo Former::text('custom_invoice_label1')->label(trans('texts.field_label'))
+			->append(Former::checkbox('custom_invoice_taxes1')->raw() . ' ' . trans('texts.charge_taxes')); ?>		
+	<?php echo Former::text('custom_invoice_label2')->label(trans('texts.field_label'))
+			->append(Former::checkbox('custom_invoice_taxes2')->raw() . ' ' . trans('texts.charge_taxes')); ?>			
+	<p>&nbsp;</p>
+
+	<?php echo Former::legend('client_fields'); ?>
+	<?php echo Former::text('custom_client_label1')->label(trans('texts.field_label')); ?>
+	<?php echo Former::text('custom_client_label2')->label(trans('texts.field_label')); ?>
+	<p>&nbsp;</p>
+
+	<?php echo Former::legend('company_fields'); ?>
+	<?php echo Former::text('custom_label1')->label(trans('texts.field_label')); ?>
+	<?php echo Former::text('custom_value1')->label(trans('texts.field_value')); ?>
+	<p>&nbsp;</p>
+	<?php echo Former::text('custom_label2')->label(trans('texts.field_label')); ?>
+	<?php echo Former::text('custom_value2')->label(trans('texts.field_value')); ?>
+
+	<?php if (Auth::user()->isPro()): ?>
+	<?php echo Former::actions( Button::lg_success_submit(trans('texts.save'))->append_with_icon('floppy-disk') ); ?>
+	<?php else: ?>
+	<script>
+	    $(function() {   
+	    	$('form.warn-on-exit input').prop('disabled', true);
+	    });
+	</script>	
+	<?php endif; ?>
+
+	<?php echo Former::close(); ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('accounts.nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

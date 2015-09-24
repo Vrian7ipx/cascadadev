@@ -1,0 +1,104 @@
+
+<?php $__env->startSection('content'); ?>	
+	@parent
+	
+	<style type="text/css">
+
+	#logo {
+		padding-top: 6px;
+	}
+
+	</style>
+
+	<?php echo Former::legend('Datos de la Empresa'); ?>
+
+	<?php echo Former::open_for_files()->addClass('col-md-12 warn-on-exit')->rules(array(
+  		'name' => 'required',
+  		'email' => 'email|required',
+  		'nit' => 'nit|required|Numeric',
+	)); ?>
+
+	<?php echo Former::populate($account); ?>
+	<?php echo Former::populateField('first_name', $account->users()->first()->first_name); ?>
+	<?php echo Former::populateField('last_name', $account->users()->first()->last_name); ?>
+	<?php echo Former::populateField('email', $account->users()->first()->email); ?>	
+	<?php echo Former::populateField('phone', $account->users()->first()->phone); ?>
+	<?php echo Former::populateField('tax', $account->tax_rates()->first()->rate); ?>
+
+
+	<div class="row">
+		<div class="col-md-5">
+
+			<?php echo Former::legend('details'); ?>
+			<?php echo Former::text('nit'); ?>
+			<?php echo Former::text('name'); ?>
+			<?php /* Former::text('work_email') */ ?>
+			<?php /* Former::text('work_phone') */ ?>
+
+
+			<?php /* Former::file('logo')->max(2, 'MB')->accept('image')->inlineHelp(trans('texts.logo_help')) */ ?>
+
+			<?php if (file_exists($account->getLogoPath())): ?>
+				<center>
+					<?php echo HTML::image($account->getLogoPath(), "Logo"); ?> &nbsp;
+					<a href="#" onclick="deleteLogo()"><?php echo trans('texts.remove_logo'); ?></a>
+				</center><br/>
+			<?php endif; ?>
+
+			<?php /* Former::legend('address') */ ?>	
+			<?php /* Former::textarea('address1')->label('Zona/Barrio') */ ?>
+			<?php /* Former::textarea('address2')->label('Dirección') */ ?>
+			<?php /* Former::text('city') */ ?>
+			<?php /* Former::text('state') */ ?>
+			<?php /* Former::textarea('postal_code') */ ?>
+			<?php /* Former::select('country_id')->addOption('','')->label('Departamento')
+				->fromQuery($countries, 'name', 'id') */ ?>
+
+			<?php echo Former::legend('Impuesto ICE'); ?>
+			<?php echo Former::text('tax'); ?>
+
+		</div>
+	
+		<div class="col-md-5 col-md-offset-2">		
+
+			<?php echo Former::legend('Administrador'); ?>
+			<?php echo Former::text('first_name'); ?>
+			<?php echo Former::text('last_name'); ?>
+			<?php echo Former::text('email'); ?>
+			<?php echo Former::text('phone'); ?>
+
+
+		</div>
+	</div>
+
+
+
+
+
+
+	<center>
+		<?php echo Button::lg_success_submit(trans('texts.save'))->append_with_icon('floppy-disk'); ?>
+	</center>
+
+	<?php echo Former::close(); ?>
+
+	<?php echo Form::open(['url' => 'remove_logo', 'class' => 'removeLogoForm']); ?>	
+	<?php echo Form::close(); ?>
+
+
+	<script type="text/javascript">
+
+		$(function() {
+			$('#country_id').combobox();
+		});
+		
+		function deleteLogo() {
+			if (confirm("<?php echo trans('texts.are_you_sure'); ?>")) {
+				$('.removeLogoForm').submit();
+			}
+		}
+
+	</script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('accounts.nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

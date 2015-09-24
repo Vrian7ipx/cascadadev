@@ -1,0 +1,162 @@
+
+<?php $__env->startSection('content'); ?> 
+	
+	
+	<?php if (!$client->trashed()): ?>		
+	<div class="pull-right">
+		<?php echo Former::open('clients/bulk')->addClass('mainForm'); ?>
+		<div style="display:none">
+			<?php echo Former::text('action'); ?>
+			<?php echo Former::text('id')->value($client->public_id); ?>
+		</div>
+
+		<?php echo DropdownButton::normal(trans('texts.edit_client'),
+			  Navigation::links(
+			    [
+			      [trans('texts.edit_client'), URL::to('clients/' . $client->public_id . '/edit')],
+			      [Navigation::DIVIDER],
+			      [trans('texts.archive_client'), "javascript:onArchiveClick()"],
+			      [trans('texts.delete_client'), "javascript:onDeleteClick()"],
+			    ]
+			  )
+			, ['id'=>'normalDropDown'])->split();; ?>
+<?php if (!Utils::isAdmin()): ?>
+			<?php echo DropdownButton::primary('Crear Factura', Navigation::links($actionLinks), ['id'=>'primaryDropDown'])->split();; ?>
+	    <?php echo Former::close(); ?>		
+<?php endif; ?>
+	</div>
+	<?php endif; ?>
+
+	<div class="row">
+
+		<div class="col-md-8">
+			<table class="table" style="width:100%">
+				<tr>
+					<td><h3><strong>Razón Social </strong> : <?php echo $client->getDisplayName(); ?></h3></td>				
+				</tr>
+			</table>
+
+			<h4>&nbsp;&nbsp;&nbsp;&nbsp;<strong>NIT/CI</strong> : <?php echo $client->getNit(); ?>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<strong>Código Nº </strong> : <?php echo $client->getCod(); ?></h4>
+		</div>
+
+	</div>
+
+	<div class="row">
+
+		<div class="col-md-4">
+			<h3><?php echo trans('texts.details'); ?></h3>
+			<p><?php echo $client->getBusinessType(); ?></p>
+			<p><?php echo $client->getZone(); ?></p>
+		  	<p><?php echo $client->getAddress(); ?></p>
+		  	<p><?php echo $client->getCustomFields(); ?></p>
+		  	<p><?php echo $client->getPhone(); ?></p>
+		  	<p><?php echo $client->getNotes(); ?></p>
+		  	<p><?php echo $client->getIndustry(); ?></p>
+		  	<p><?php echo $client->getWebsite(); ?></p>
+		</div>
+
+		<div class="col-md-4">
+			<h3><?php echo trans('texts.contacts'); ?></h3>
+		  	<?php foreach ($client->contacts as $contact): ?>		  	
+		  		<?php echo $contact->getDetails(); ?>		  	
+		  	<?php endforeach; ?>			
+		</div>
+
+		<div class="col-md-4">
+			<h3><?php echo trans('texts.standing'); ?>
+			<table class="table" style="width:300px">
+				<tr>
+					<td><small><?php echo trans('texts.paid_to_date'); ?></small></td>
+					<td style="text-align: right"><?php echo Utils::formatMoney($client->balance, $client->currency_id);; ?></td>
+				</tr>
+			</table>
+
+			</h3>
+
+		</div>
+	</div>
+
+	<p>&nbsp;</p>
+	
+	<ul class="nav nav-tabs nav-justified">
+		<?php echo HTML::tab_link('#activity', trans('texts.activity'), true); ?>
+		<?php echo HTML::tab_link('#invoices', trans('texts.invoices')); ?>		
+	</ul>
+
+	<div class="tab-content">
+
+        <div class="tab-pane active" id="activity">
+
+			<?php echo Datatable::table()		
+		    	->addColumn(
+		    		trans('texts.date'),
+		    		trans('texts.message'))
+		    	->setUrl(url('api/activities/'. $client->public_id))    	
+		    	->setOptions('sPaginationType', 'bootstrap')
+		    	->setOptions('bFilter', false)
+		    	->setOptions('aaSorting', [['0', 'desc']])
+		    	->render('datatable'); ?>
+
+        </div>
+
+		<div class="tab-pane" id="invoices">
+
+			<?php if ($hasRecurringInvoices): ?>
+				<?php echo Datatable::table()		
+			    	->addColumn(
+			    		trans('texts.frequency_id'),
+			    		trans('texts.start_date'),
+			    		trans('texts.end_date'),
+			    		trans('texts.invoice_total'))			    		
+			    	->setUrl(url('api/recurring_invoices/' . $client->public_id))    	
+			    	->setOptions('sPaginationType', 'bootstrap')
+			    	->setOptions('bFilter', false)
+			    	->setOptions('aaSorting', [['0', 'asc']])
+			    	->render('datatable'); ?>
+			<?php endif; ?>
+
+			<?php echo Datatable::table()		
+		    	->addColumn(
+		    			trans('texts.invoice_number'),
+		    			trans('texts.invoice_date'),
+		    			trans('texts.invoice_total'),
+		    			trans('texts.status'))
+		    	->setUrl(url('api/invoices/' . $client->public_id))    	
+		    	->setOptions('sPaginationType', 'bootstrap')
+		    	->setOptions('bFilter', false)
+		    	->setOptions('aaSorting', [['0', 'asc']])
+		    	->render('datatable'); ?>
+            
+        </div>
+
+    </div>
+	
+	<script type="text/javascript">
+
+	$(function() {
+		$('#normalDropDown > button:first').click(function() {
+			window.location = '<?php echo URL::to('clients/' . $client->public_id . '/edit'); ?>';
+		});
+		$('#primaryDropDown > button:first').click(function() {
+			window.location = '<?php echo URL::to('invoices/create/' . $client->public_id ); ?>';
+		});
+	});
+
+	function onArchiveClick() {
+		$('#action').val('archive');
+		$('.mainForm').submit();
+	}
+
+	function onDeleteClick() {
+		if (confirm("<?php echo trans('texts.are_you_sure'); ?>")) {
+			$('#action').val('delete');
+			$('.mainForm').submit();
+		}		
+	}
+
+	</script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,79 @@
+
+<?php $__env->startSection('content'); ?> 
+  @parent
+
+  <?php echo Former::open($url)->method($method)->addClass('col-md-12 warn-on-exit')->rules(array(
+      'name' => 'required',
+      'address1' => 'required',
+      'address2' => 'required',
+      'postal_code' => 'required',
+      'city' => 'required',
+      'state' => 'required',
+      'activity_pri' => 'required',
+      'number_autho' => 'required',
+      'deadline' => 'required',
+      'key_dosage' => 'required',
+      'law' => 'required'
+  ));; ?>
+
+
+  <?php echo Former::legend($title); ?>
+
+  <?php if ($branch): ?>
+    <?php echo Former::populate($branch); ?>
+  <?php endif; ?>
+  <div class="row">
+    <div class="col-md-6">  
+
+    <?php echo Former::text('name')->label('texts.name'); ?>
+
+    <?php echo Former::legend('address'); ?> 
+    <?php echo Former::textarea('address1')->label('Zona/Barrio'); ?>
+    <?php echo Former::textarea('address2')->label('Dirección'); ?>
+    <?php echo Former::text('postal_code')->label('teléfonos'); ?>
+    <?php echo Former::text('city')->label('departamento'); ?>
+    <?php echo Former::text('state')->label('municipio'); ?>
+
+    <?php /* Former::select('country_id')->addOption('','')->label('Departamento')
+          ->fromQuery($countries, 'name', 'id') */ ?>
+    </div>
+
+    <div class="col-md-6">    
+
+      <?php echo Former::legend('Actividades'); ?>
+
+      <?php echo Former::textarea('activity_pri')->label('actividad Principal'); ?>
+      <?php echo Former::textarea('activity_sec1')->label('actividad Secundaria'); ?>
+
+      <?php echo Former::legend('dosificación'); ?>
+
+      <?php echo Former::text('number_autho')->label('número de autorización'); ?>
+      <?php echo Former::text('deadline')->label('fecha límite'); ?>
+      <?php echo Former::textarea('key_dosage')->label('llave dosificación')->rows(3); ?>
+
+      <?php echo Former::legend('Leyenda'); ?>
+
+      <?php echo Former::textarea('law')->label('leyenda Genérica'); ?>
+
+    
+    </div>
+  </div>
+
+
+  <?php echo Former::actions( 
+      Button::lg_success_submit(trans('texts.save'))->append_with_icon('floppy-disk'),
+      Button::lg_default_link('company/branches', 'Cancelar')->append_with_icon('remove-circle')      
+  ); ?>
+
+  <?php echo Former::close(); ?>
+
+    <script type="text/javascript">
+
+    $(function() {
+      $('#country_id').combobox();
+    });
+
+  </script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('accounts.nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

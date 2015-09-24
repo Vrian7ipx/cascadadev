@@ -1,0 +1,9 @@
+<h2><?php echo trans('texts.confirmation_header'); ?></h2>
+
+<?php echo $invitationMessage . trans('texts.confirmation_message'); ?><p/>
+<a href='<?php echo e(URL::to("user/confirm/{$user->confirmation_code}")); ?>'>
+    <?php echo e(URL::to("user/confirm/{$user->confirmation_code}")); ?>
+</a><p/>
+
+<?php echo trans('texts.email_signature'); ?><br/>
+<?php echo trans('texts.email_from'); ?>
