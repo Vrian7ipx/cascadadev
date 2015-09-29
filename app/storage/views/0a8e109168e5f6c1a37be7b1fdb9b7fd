@@ -1,0 +1,127 @@
+
+
+<?php $__env->startSection('onReady'); ?>
+	$('input#notes').focus();
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="row">
+
+	<?php echo Former::open($url)->addClass('col-md-12 warn-on-exit')->method($method)->rules(array(
+  		'cost' => 'cost|required|Numeric', 
+  	));; ?>
+
+	<?php if ($product): ?>
+    	<?php echo Former::populate($product); ?>
+	<?php endif; ?>
+
+	<div class="row">
+		<div class="col-md-6">
+
+		<?php echo Former::legend('datos Producto'); ?>
+      	<?php echo Former::text('product_key')->label('texts.product_cod'); ?>
+      	<?php echo Former::textarea('notes')->label('texts.notes'); ?>
+
+      	<?php echo Former::text('units')->label('texts.units'); ?>
+      	
+      	<?php echo Former::text('cc')->label('texts.cc'); ?>
+
+      	<?php echo Former::radios('pack_types')->label('texts.pack_types')
+         	->radios(array(
+            'Vidrio' => array('name' => 'pack_types', 'value' => 'V'),
+            'Plástico' => array('name' => 'pack_types', 'value' => 'P'),
+     	  	)); ?>
+
+     	<?php echo Former::radios('ice')->label('Impuesto')
+         	->radios(array(
+            'Con ICE' => array('name' => 'ice', 'value' => '1'),
+            'Sin ICE' => array('name' => 'ice', 'value' => '0'),
+     	  	)); ?>
+
+  		<?php /* Former::checkbox('ice')->label('texts.ice') */ ?>
+
+
+		</div>
+		<div class="col-md-6">
+
+			<?php echo Former::legend('prices'); ?>
+			<div data-bind='template: { foreach: prices,
+		                            afterAdd: showPrice }'>
+
+				<?php echo Former::hidden('public_id')->data_bind("value: public_id, valueUpdate: 'afterkeydown'"); ?>
+				<span data-bind="text: $index() == 0 ? 'ciudad':''"> </span>
+				<span data-bind="text: $index() == 1 ? 'Viajero':''"> </span>
+				<span data-bind="text: $index() == 2 ? 'Otro':''"> </span>
+				<?php echo Former::text('cost')->data_bind("value: cost, valueUpdate: 'afterkeydown'")->label(' '); ?>
+
+				<div class="form-group">
+					<div class="col-lg-8 col-lg-offset-4 bold">				
+						<span data-bind="visible: $parent.prices().length < 3" class="pull-right greenlink bold">
+							<?php echo link_to('#', 'Añadir precio +', array('onclick'=>'return addPrice()')); ?>
+						</span>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+	
+	<?php echo Former::hidden('data')->data_bind("value: ko.toJSON(model)"); ?>	
+
+	<script type="text/javascript">
+
+	function PriceModel(data) {
+		var self = this;
+		self.public_id = ko.observable('');
+		self.cost = ko.observable('');
+
+
+		if (data) {
+			ko.mapping.fromJS(data, {}, this);			
+		}		
+	}
+
+	function PricesModel(data) {
+		var self = this;
+		self.prices = ko.observableArray();
+
+		self.mapping = {
+		    'prices': {
+		    	create: function(options) {
+		    		return new PriceModel(options.data);
+		    	}
+		    }
+		}
+	
+
+		if (data) {
+			ko.mapping.fromJS(data, self.mapping, this);			
+		} else {
+			self.prices.push(new PriceModel());
+		}
+
+	}
+
+	 window.model = new PricesModel(<?php echo $product; ?>);
+
+	model.showPrice = function(elem) { if (elem.nodeType === 1) $(elem).hide().slideDown() }
+
+	 ko.applyBindings(model);
+
+	function addPrice() {
+		model.prices.push(new PriceModel());
+		return false;
+	}
+
+	</script>
+
+	<center class="buttons">
+		<?php echo Button::lg_primary_submit_success('Guardar')->append_with_icon('floppy-disk'); ?>
+    <?php echo Button::lg_default_link('products/' . ($product ? $product->public_id : ''), 'Cancelar')->append_with_icon('remove-circle');; ?>
+	</center>
+
+	<?php echo Former::close(); ?>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -185,9 +185,8 @@ class ConfideSetupUsersTable extends Migration {
             $t->string('title');
             $t->string('subtitle');
 
-            $t->integer('invoice_number_counter')->default(1)->nullable();
-            $t->text('quote_number_prefix')->nullable();
-            $t->integer('quote_number_counter')->default(1)->nullable();
+            $t->integer('invoice_number_counter')->default(1);
+         
             $t->boolean('share_counter')->default(false);
 
             $t->foreign('account_id')->references('id')->on('accounts');

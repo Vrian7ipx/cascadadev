@@ -1406,3 +1406,25 @@
  {"context":"JavaScript","user_id":0,"user_name":"","url":"http://sigcfactu.com.bo/log_error","user_agent":"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)","ip":"66.249.65.131","count":1} []
 [2015-09-15 13:01:45] development.ERROR: 
  {"context":"JavaScript","user_id":0,"user_name":"","url":"http://sigcfactu.com.bo/log_error","user_agent":"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)","ip":"66.249.64.225","count":1} []
+[2015-09-17 11:59:50] development.ERROR: 
+ {"context":"JavaScript","user_id":0,"user_name":"","url":"http://sigcfactu.com.bo/log_error","user_agent":"Mozilla/5.0 (Android; Mobile; rv:39.0) Gecko/39.0 Firefox/39.0","ip":"181.114.126.152","count":1} []
+[2015-09-17 12:26:24] development.ERROR: 
+ {"context":"JavaScript","user_id":0,"user_name":"","url":"http://sigcfactu.com.bo/log_error","user_agent":"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)","ip":"66.249.67.3","count":1} []
+[2015-09-20 09:05:55] development.ERROR: 
+ {"context":"JavaScript","user_id":0,"user_name":"","url":"http://sigcfactu.com.bo/log_error","user_agent":"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)","ip":"66.249.75.254","count":1} []
+[2015-09-21 11:51:34] development.ERROR: 
+ {"context":"JavaScript","user_id":0,"user_name":"","url":"http://sigcfactu.com.bo/log_error","user_agent":"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)","ip":"66.249.75.254","count":1} []
+[2015-09-21 21:40:21] development.ERROR: 
+ {"context":"JavaScript","user_id":0,"user_name":"","url":"http://sigcfactu.com.bo/log_error","user_agent":"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)","ip":"66.249.75.129","count":1} []
+[2015-09-22 17:01:31] development.ERROR: 
+ {"context":"JavaScript","user_id":0,"user_name":"","url":"http://sigcfactu.com.bo/log_error","user_agent":"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)","ip":"66.249.65.250","count":1} []
+[2015-09-24 12:30:24] development.ERROR: Script error.
+ {"context":"JavaScript","user_id":"26","user_name":"Agencia Llojeta-Hugo Ernesto Rodriguez Aspiazu","url":"http://sigcfactu.com.bo/dashboard","user_agent":"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.99 Safari/537.36","ip":"200.87.103.18","count":1} []
+[2015-09-24 12:30:32] development.ERROR: Script error.
+ {"context":"JavaScript","user_id":"26","user_name":"Agencia Llojeta-Hugo Ernesto Rodriguez Aspiazu","url":"http://sigcfactu.com.bo/clients","user_agent":"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.99 Safari/537.36","ip":"200.87.103.18","count":2} []
+[2015-09-25 05:10:19] development.ERROR: 
+ {"context":"JavaScript","user_id":0,"user_name":"","url":"http://sigcfactu.com.bo/log_error","user_agent":"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)","ip":"66.249.79.135","count":1} []
+[2015-09-26 15:30:48] development.ERROR: 
+ {"context":"JavaScript","user_id":0,"user_name":"","url":"http://sigcfactu.com.bo/log_error","user_agent":"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)","ip":"66.249.64.235","count":1} []
+[2015-09-29 22:36:37] development.ERROR: Uncaught Error: No PDFJS.workerSrc specified
+ {"context":"JavaScript","user_id":1,"user_name":"-Guest","url":"http://localhost/cascadadev/public/invoices/create","user_agent":"Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36 OPR/32.0.1948.25","ip":"::1","count":1} []

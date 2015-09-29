@@ -1,0 +1,15 @@
+
+<?php $__env->startSection('content'); ?>
+
+	<ul class="nav nav-tabs nav nav-justified">
+  	<?php echo HTML::nav_link('company/details', 'company_details'); ?>
+  	<?php echo HTML::nav_link('company/branches', 'branch_details'); ?>
+  	<?php echo HTML::nav_link('company/groups', 'group_details'); ?>
+  	<?php echo HTML::nav_link('company/user_management', 'user_management'); ?>
+    <?php echo HTML::nav_link('company/import_export', 'import_export', 'company/import_map'); ?>
+	</ul>
+
+	<br/>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
