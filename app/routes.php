@@ -10,7 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
+Route::resource('proof','ProofController');
 Route::get('/', 'UserController@login');
 Route::post('/contact_submit', 'HomeController@doContactUs');
 
