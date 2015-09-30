@@ -67,7 +67,7 @@ return array(
 	| cat /dev/random | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1
 	*/
 
-	'key' => '',
+	'key' => 'brianbrianbrianbrianbbr7',
 
 	/*
 	|--------------------------------------------------------------------------
