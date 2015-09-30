@@ -55,7 +55,11 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
+<<<<<<< HEAD
 			'database'  => 'cascadadev1',
+=======
+			'database'  => 'cascada_db',
+>>>>>>> d6f58f46b0c4d78ce557bc524bcc5adea02b2d33
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',

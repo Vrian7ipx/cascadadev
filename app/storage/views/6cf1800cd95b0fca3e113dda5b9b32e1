@@ -1,0 +1,61 @@
+<table class="table table-striped <?php echo $class = str_random(8); ?>">
+    <colgroup>
+        <?php for ($i = 0; $i < count($columns); $i++): ?>
+        <col class="con<?php echo $i; ?>" />
+        <?php endfor; ?>
+    </colgroup>
+    <thead>
+    <tr>
+        <?php foreach($columns as $i => $c): ?>
+        <th align="center" valign="middle" class="head<?php echo $i; ?>" 
+            <?php if ($c == 'checkbox'): ?>
+                style="width:20px"            
+            <?php endif; ?>
+        >
+            <?php if ($c == 'checkbox' && $hasCheckboxes = true): ?>
+                <input type="checkbox" class="selectAll"/>
+            <?php else: ?>
+                <?php echo $c; ?>
+            <?php endif; ?>
+        </th>
+        <?php endforeach; ?>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach($data as $d): ?>
+    <tr>
+        <?php foreach($d as $dd): ?>
+        <td><?php echo $dd; ?></td>
+        <?php endforeach; ?>
+    </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        // dynamic table
+        jQuery('.<?php echo $class; ?>').dataTable({
+            "bAutoWidth": false,            
+            <?php if (isset($hasCheckboxes) && $hasCheckboxes): ?>
+            'aaSorting': [['1', 'desc']],
+            "displayLength": 10,
+            // Disable sorting on the first column
+            "aoColumnDefs": [ {
+                'bSortable': false,
+                'aTargets': [ 0, <?php echo count($columns) - 1; ?> ]                
+            } ],
+            <?php endif; ?>
+            <?php foreach ($options as $k => $o): ?>
+            <?php echo json_encode($k); ?>: <?php echo json_encode($o); ?>,
+            <?php endforeach; ?>
+            <?php foreach ($callbacks as $k => $o): ?>
+            <?php echo json_encode($k); ?>: <?php echo $o; ?>,
+            <?php endforeach; ?>
+            "fnDrawCallback": function(oSettings) {
+                if (window.onDatatableReady) {
+                    window.onDatatableReady();
+                }
+            }
+        });
+    });
+</script>

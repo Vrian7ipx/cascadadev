@@ -1,0 +1,42 @@
+
+<?php $__env->startSection('content'); ?> 
+  @parent
+
+  <?php echo Former::open($url)->method($method)->addClass('col-md-12 warn-on-exit'); ?>
+
+
+  <?php echo Former::legend($title); ?>
+
+  <?php if ($group): ?>
+    <?php echo Former::populate($group); ?>
+  <?php endif; ?>
+  <div class="row">
+    <div class="col-md-8">  
+
+    <?php echo Former::legend('Datos del Grupo'); ?> 
+    <?php echo Former::text('code')->label('Código'); ?>
+    <?php echo Former::text('name')->label('Nombre'); ?>
+    <?php echo Former::textarea('text')->label('Información adicional'); ?>
+
+    </div>
+
+  </div>
+
+
+  <?php echo Former::actions( 
+      Button::lg_success_submit(trans('texts.save'))->append_with_icon('floppy-disk'),
+      Button::lg_default_link('company/groups', 'Cancelar')->append_with_icon('remove-circle')      
+  ); ?>
+
+  <?php echo Former::close(); ?>
+
+    <script type="text/javascript">
+
+    $(function() {
+      $('#country_id').combobox();
+    });
+
+  </script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('accounts.nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

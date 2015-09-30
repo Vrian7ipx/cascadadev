@@ -1,0 +1,168 @@
+
+
+<?php $__env->startSection('onReady'); ?>
+	$('input#name').focus();
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="row">
+
+	<?php echo Former::open($url)->addClass('col-md-12 warn-on-exit')->method($method)->rules(array(
+  		'nit' => 'nit|required|Numeric',  
+  		'name' => 'required', 
+  		'group_id' => 'required'
+	));; ?>
+
+	<?php if ($client): ?>
+		<?php echo Former::populate($client); ?>
+	<?php endif; ?>
+
+	<div class="row">
+		<div class="col-md-6">
+
+
+			<?php echo Former::legend('datos Cliente'); ?>
+
+			<?php echo Former::text('nit')->label('NIT/CI')->data_bind("value: capitalizeLastName() ? '0' : nit"); ?>
+			<?php echo Former::text('name')->label('Señor(es)')->data_bind("value: capitalizeLastName() ? 'Sin Nombre' : name"); ?>
+
+			<?php echo Former::checkbox('Datos')->label('-')->text('Sin Datos para la factura')->data_bind("checked: capitalizeLastName, valueUpdate: 'afterkeydown'"); ?>
+
+			<?php /* Former::text('website') */ ?>
+			<?php echo Former::text('work_phone')->label('Teléfono/Celular'); ?>
+
+			<?php echo Former::legend('address'); ?>
+
+			<?php echo Former::select('zone_id')->addOption('','')->label('zona/Barrio')
+				->fromQuery($zones, 'name', 'id'); ?>
+			<?php echo Former::text('address1')->label('Otro'); ?>
+			<?php echo Former::text('address2')->label('dirección'); ?>
+			<?php /* Former::text('city') */ ?>
+			<?php /* Former::text('state') */ ?>
+			<?php /* Former::text('postal_code') */ ?>
+			<?php echo Former::select('country_id')->addOption('','')->label('Ciudad')
+				->fromQuery($countries, 'name', 'id'); ?>
+
+
+		</div>
+		<div class="col-md-6">
+
+			<?php echo Former::legend('contacts'); ?>
+			<div data-bind='template: { foreach: contacts,
+		                            beforeRemove: hideContact,
+		                            afterAdd: showContact }'>
+				<?php echo Former::hidden('public_id')->data_bind("value: public_id, valueUpdate: 'afterkeydown'"); ?>
+				<?php echo Former::text('first_name')->data_bind("value: first_name, valueUpdate: 'afterkeydown'"); ?>
+				<?php echo Former::text('last_name')->data_bind("value: last_name, valueUpdate: 'afterkeydown'"); ?>
+				<?php echo Former::text('email')->data_bind('value: email, valueUpdate: \'afterkeydown\', attr: {id:\'email\'+$index()}'); ?>
+				<?php echo Former::text('phone')->label('Celular')->data_bind("value: phone, valueUpdate: 'afterkeydown'"); ?>	
+
+				<div class="form-group">
+					<div class="col-lg-8 col-lg-offset-4 bold">
+						<span class="redlink bold" data-bind="visible: $parent.contacts().length > 1">
+							<?php echo link_to('#', 'Remover contacto -', array('data-bind'=>'click: $parent.removeContact')); ?>
+						</span>					
+						<span data-bind="visible: $index() === ($parent.contacts().length - 1)" class="pull-right greenlink bold">
+							<?php echo link_to('#', 'Añadir contacto +', array('onclick'=>'return addContact()')); ?>
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<?php echo Former::legend('additional_info'); ?>
+			<?php echo Former::select('group_id')->addOption('','')
+				->fromQuery($groups, 'name', 'id'); ?>
+			<?php echo Former::hidden('currency_id')->addOption('','')
+				->fromQuery($currencies, 'name', 'id'); ?>
+			<?php echo Former::select('business_type_id')->addOption('','')
+				->fromQuery($business_types, 'name', 'id'); ?>
+			<?php echo Former::textarea('private_notes'); ?>
+			
+					
+			<?php echo Former::checkboxes('custom_value1')->label($customLabel1)
+					->checkboxes('Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo')
+					->check(array('custom_value1_0' => $monday, 'custom_value1_1' => $tuesday, 'custom_value1_2' => $wednesday, 'custom_value1_3' => $thursday, 'custom_value1_4' => $friday, 'custom_value1_5' => $saturday, 'custom_value1_6' => $sunday)); ?>
+			
+		</div>
+	</div>
+
+
+	<?php echo Former::hidden('data')->data_bind("value: ko.toJSON(model)"); ?>	
+
+	<script type="text/javascript">
+
+	$(function() {
+		$('#zone_id').combobox();
+		$('#country_id').combobox();
+		$('#business_type_id').combobox();
+		$('#group_id').combobox();
+
+	});
+
+	function ContactModel(data) {
+		var self = this;
+		self.public_id = ko.observable('');
+		self.first_name = ko.observable('');
+		self.last_name = ko.observable('');
+		self.email = ko.observable('');
+		self.phone = ko.observable('');
+
+		if (data) {
+			ko.mapping.fromJS(data, {}, this);			
+		}		
+	}
+
+	function ContactsModel(data) {
+		var self = this;
+		self.contacts = ko.observableArray();
+		self.capitalizeLastName = ko.observable(false);
+
+		self.nit = ko.observable('');
+		self.name = ko.observable('');
+
+
+		self.mapping = {
+		    'contacts': {
+		    	create: function(options) {
+		    		return new ContactModel(options.data);
+		    	}
+		    }
+		}		
+
+		if (data) {
+			ko.mapping.fromJS(data, self.mapping, this);			
+		} else {
+			self.contacts.push(new ContactModel());
+		}
+
+	}
+
+	window.model = new ContactsModel(<?php echo $client; ?>);
+
+	model.showContact = function(elem) { if (elem.nodeType === 1) $(elem).hide().slideDown() }
+	model.hideContact = function(elem) { if (elem.nodeType === 1) $(elem).slideUp(function() { $(elem).remove(); }) }
+
+
+	ko.applyBindings(model);
+
+	function addContact() {
+		model.contacts.push(new ContactModel());
+		return false;
+	}
+
+	model.removeContact = function() {
+		model.contacts.remove(this);
+	}
+
+
+	</script>
+
+	<center class="buttons">
+		<?php echo Button::lg_primary_submit_success('Guardar')->append_with_icon('floppy-disk'); ?>
+    <?php echo Button::lg_default_link('clients/' . ($client ? $client->public_id : ''), 'Cancelar')->append_with_icon('remove-circle');; ?>
+	</center>
+
+	<?php echo Former::close(); ?>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
