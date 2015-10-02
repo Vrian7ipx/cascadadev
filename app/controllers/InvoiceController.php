@@ -24,6 +24,9 @@ class InvoiceController extends \BaseController {
 
 	public function index()
 	{
+
+		// print_r($this->setDataOffline());
+		// return 0;
 		$data = [
 			'title' => trans('texts.invoices'),
 			'entityType'=>ENTITY_INVOICE, 
@@ -872,7 +875,7 @@ class InvoiceController extends \BaseController {
 
 	// modulos offline
 
-	public function listaOffline()
+		public function listaOffline()
     {
     	$user_id = Auth::user()->getAuthIdentifier();
     	$user = DB::table('users')->select('account_id','price_type_id','branch_id','id','groups')->where('id',$user_id)->first();
@@ -969,6 +972,458 @@ class InvoiceController extends \BaseController {
     	return Response::json($mensaje);    	
 
     }
+
+    private function setDataOffline(){
+    	$data = "[
+  {
+    \"invoice_items\": [
+      {
+        \"boni\": \"3\",
+        \"desc\": \"2\",
+        \"qty\": \"41\",
+        \"id\": \"1\"
+      }
+    ],
+    \"fecha\": \"01-10-2015\",
+    \"name\": \"MOLLISACA\",
+    \"cod_control\": \"AB-07-3B-27\",
+    \"nit\": \"122038325\",
+    \"invoice_number\": \"9\",
+    \"client_id\": \"2\"
+  },
+  {
+    \"invoice_items\": [
+      {
+        \"boni\": \"3\",
+        \"desc\": \"2\",
+        \"qty\": \"41\",
+        \"id\": \"1\"
+      }
+    ],
+    \"fecha\": \"01-10-2015\",
+    \"name\": \"MOLLISACA\",
+    \"cod_control\": \"D4-21-5F-0B\",
+    \"nit\": \"122038325\",
+    \"invoice_number\": \"10\",
+    \"client_id\": \"2\"
+  },
+  {
+    \"invoice_items\": [
+      {
+        \"boni\": \"3\",
+        \"desc\": \"2\",
+        \"qty\": \"41\",
+        \"id\": \"1\"
+      }
+    ],
+    \"fecha\": \"01-10-2015\",
+    \"name\": \"MOLLISACA\",
+    \"cod_control\": \"D4-21-5F-0B\",
+    \"nit\": \"122038325\",
+    \"invoice_number\": \"10\",
+    \"client_id\": \"2\"
+  },
+  {
+    \"invoice_items\": [
+      {
+        \"boni\": \"3\",
+        \"desc\": \"2\",
+        \"qty\": \"41\",
+        \"id\": \"1\"
+      }
+    ],
+    \"fecha\": \"01-10-2015\",
+    \"name\": \"MOLLISACA\",
+    \"cod_control\": \"D4-21-5F-0B\",
+    \"nit\": \"122038325\",
+    \"invoice_number\": \"10\",
+    \"client_id\": \"2\"
+  }
+]";
+	$datos = json_decode($data);
+	return $datos;
+    }
+    public function saveOfflineInvoices(){
+    	$input =  $this->setDataOffline();
+    	foreach ($input as $key => $factura) {
+    		
+    	}
+    	
+    }
+    public function saveOfflineInvoice($factura)
+    {
+    	/* David 
+    	 Guardando  factura con el siguiente formato:
+    	
+			//Formato Offline
+			//nuevo formato para la cascada XD
+			{"invoice_items":[{"qty":"2","id":"2","boni":"1","desc":"3"}],"client_id":"1","nit":"6047054","name":"torrez","public_id":"1","invoice_date":"14-10-2014","invoice_number":"0001","cod_control"}
+
+    	*/
+		//$input = Input::all();
+		$input = $factura;
+        
+		// $invoice_number = Auth::user()->account->getNextInvoiceNumber();
+		$invoice_number = (int)Auth::user()->branch->getNextInvoiceNumber();
+
+		$numero =(int) $input['invoice_number'];
+		// $numero =(int)  $input['invoice_number'];
+
+		if($invoice_number!=$numero)
+		{
+			return Response::json( array('resultado' => '1' ,'invoice_number'=>$invoice_number));
+
+		}
+		$client_id = $input['client_id'];
+		// $client = DB::table('clients')->select('id','nit','name','public_id')->where('id',$input['client_id'])->first();
+
+		$user_id = Auth::user()->getAuthIdentifier();
+		$user  = DB::table('users')->select('account_id','branch_id','price_type_id')->where('id',$user_id)->first();
+		
+		//$account_id = $user->account_id;
+		// $account = DB::table('accounts')->select('num_auto','llave_dosi','fecha_limite')->where('id',$user->account_id)->first();
+		//$branch = DB::table('branches')->select('num_auto','llave_dosi','fecha_limite','address1','address2','country_id','industry_id')->where('id',$user['branch_id'])->first();
+		//$branch = DB::table('branches')->select('num_auto','llave_dosi','fecha_limite','address1','address2','country_id','industry_id')->where('id','=',$user->branch_id)->first();	
+    	// $branch = DB::table('branches')->select('number_autho','key_dosage','deadline','address1','address2','country_id','industry_id','law','activity_pri','activity_sec1','name')->where('id','=',$user->branch_id)->first();	
+    	$branch = DB::table('branches')->where('id','=',$user->branch_id)->first();	
+    	$items = $input['invoice_items'];
+    	// $linea ="";
+    	$amount = 0;
+    	$subtotal=0;
+    	$fiscal=0;
+    	$icetotal=0;
+    	$bonidesc =0;
+    	foreach ($items as $item) 
+    	{
+    		# code...
+    		$product_id = $item['id'];
+    		 
+    		$pr = DB::table('products')
+    							->join('prices',"product_id","=",'products.id')
+    					
+    							->select('products.id','products.notes','prices.cost','products.ice','products.units','products.cc')
+    						    ->where('prices.price_type_id','=',$user->price_type_id)
+    						    ->where('products.account_id','=',$user->account_id)
+    						    ->where('products.id',"=",$product_id)
+    							->first();
+
+    		// $pr = DB::table('products')->select('cost')->where('id',$product_id)->first();
+    		
+    		$qty = (int) $item['qty'];
+    		$cost = $pr->cost/$pr->units;
+    		$st = ($cost * $qty);
+    		$subtotal = $subtotal + $st; 
+    		$bd= ($item['boni']*$cost) + $item['desc'];
+    		$bonidesc= $bonidesc +$bd;
+    		$amount = $amount +$st-$bd;
+
+    		$ice = DB::table('tax_rates')->select('rate')->where('name','=','ice')->first();
+    		if($pr->ice == 1)
+    		{
+    			
+    			//caluclo ice bruto 
+    			$iceBruto = ($qty *($pr->cc/1000)*$ice->rate);
+    			$iceNeto = (((int)$item['boni']) *($pr->cc/1000)*$ice->rate);
+    			$icetotal = $icetotal +($iceBruto-$iceNeto) ;
+    			// $fiscal = $fiscal + ($amount - ($item['qty'] *($pr->cc/1000)*$ice->rate) );
+    		}
+    		
+    		
+
+    			
+
+    	}
+    	$fiscal = $amount -$bonidesc-$icetotal;
+
+    	$balance= $amount;
+    	/////////////////////////hasta qui esta bien al parecer hacer prueba de que fuciona el join de los productos XD
+    	$invoice_dateCC = date("Ymd");
+    	$invoice_date = date("Y-m-d");
+    
+		$invoice_date_limitCC = date("Y-m-d", strtotime($branch->deadline));
+
+		// require_once(app_path().'/includes/control_code.php');	
+		// $cod_control = codigoControl($invoice_number, $input['nit'], $invoice_dateCC, $amount, $branch->number_autho, $branch->key_dosage);
+	     $cod_control = $input['cod_control'];
+	     $ice = DB::table('tax_rates')->select('rate')->where('name','=','ice')->first();
+	     //
+	     // creando invoice
+	     $invoice = Invoice::createNew();
+	     $invoice->invoice_number=$invoice_number;
+	     $invoice->client_id=$client_id;
+	     $invoice->user_id=$user_id;
+	     $invoice->account_id = $user->account_id;
+	     $invoice->branch_id= $user->branch_id;
+	     $invoice->amount =number_format((float)$amount, 2, '.', '');	
+	     $invoice->subtotal = $subtotal;
+	     $invoice->fiscal =$fiscal;
+	     $invoice->law = $branch->law;
+	     $invoice->balance=$balance;
+	     $invoice->control_code=$cod_control;
+	     $invoice->start_date =$invoice_date;
+	     $invoice->invoice_date=$invoice_date;
+
+		 $invoice->activity_pri=$branch->activity_pri;
+	     $invoice->activity_sec1=$branch->activity_sec1;
+	     
+	     // $invoice->invoice
+	     $invoice->end_date=$invoice_date_limitCC;
+	     //datos de la empresa atra vez de una consulta XD
+	     /*****************error generado al intentar guardar **/
+	   	 // $invoice->branch = $branch->name;
+	     $invoice->address1=$branch->address1;
+	     $invoice->address2=$branch->address2;
+	     $invoice->number_autho=$branch->number_autho;
+	     $invoice->work_phone=$branch->postal_code;
+			$invoice->city=$branch->city;
+			$invoice->state=$branch->state;
+	     // $invoice->industry_id=$branch->industry_id;
+
+	     $invoice->country_id= $branch->country_id;
+	     $invoice->key_dosage = $branch->key_dosage;
+	     $invoice->deadline = $branch->deadline;
+	     $invoice->custom_value1 =$icetotal;
+	     $invoice->ice = $ice->rate;
+	     //cliente
+	     $invoice->nit=$input['nit'];
+	     $invoice->name =$input['name'];
+
+	     $invoice->save();
+	     
+	     $account = Auth::user()->account;
+	     require_once(app_path().'/includes/BarcodeQR.php');
+
+			$ice = $invoice->amount-$invoice->fiscal;
+			$desc = $invoice->subtotal-$invoice->amount;
+
+			$amount = number_format($invoice->amount, 2, '.', '');
+			$fiscal = number_format($invoice->fiscal, 2, '.', '');
+
+			$icef = number_format($ice, 2, '.', '');
+			$descf = number_format($desc, 2, '.', '');
+
+			if($icef=="0.00"){
+				$icef = 0;
+			}
+			if($descf=="0.00"){
+				$descf = 0;
+			}
+
+			$qr = new BarcodeQR();
+			$datosqr = '1006909025|'.$input['invoice_number'].'|'.$invoice->number_autho.'|'.$invoice_date.'|'.$amount.'|'.$fiscal.'|'.$invoice->nit.'|'.$icef.'|0|0|'.$descf;
+			$qr->text($datosqr); 
+			$qr->draw(150, 'qr/' . $account->account_key .'_'. $invoice->invoice_number . '.png');
+			$input_file = 'qr/' . $account->account_key .'_'. $invoice->invoice_number . '.png';
+			$output_file = 'qr/' . $account->account_key .'_'. $invoice->invoice_number . '.jpg';
+
+			$inputqr = imagecreatefrompng($input_file);
+			list($width, $height) = getimagesize($input_file);
+			$output = imagecreatetruecolor($width, $height);
+			$white = imagecolorallocate($output,  255, 255, 255);
+			imagefilledrectangle($output, 0, 0, $width, $height, $white);
+			imagecopy($output, $inputqr, 0, 0, 0, 0, $width, $height);
+			imagejpeg($output, $output_file);
+
+			$invoice->qr=HTML::image_data('qr/' . $account->account_key .'_'. $input['invoice_number'] . '.jpg');
+
+	     	$invoice->save();
+				$fecha =$input['fecha'];
+			$f = date("Y-m-d", strtotime($fecha));
+	     	 DB::table('invoices')
+            ->where('id', $invoice->id)
+            ->update(array('branch' => $branch->name,'invoice_date'=>$f));
+	     //error verificar
+
+	     // $invoice = DB::table('invoices')->select('id')->where('invoice_number',$invoice_number)->first();
+
+	     //guardadndo los invoice items
+	    foreach ($items as $item) 
+    	{
+    		
+    		
+    		
+    		// $product = DB::table('products')->select('notes')->where('id',$product_id)->first();
+    		  $product_id = $item['id'];
+	    		 
+	    		$product = DB::table('products')
+	    							->join('prices',"product_id","=",'products.id')
+	    					
+	    							->select('products.id','products.notes','prices.cost','products.ice','products.units','products.cc','products.product_key')
+	    						    ->where('prices.price_type_id','=',$user->price_type_id)
+	    						    ->where('products.account_id','=',$user->account_id)
+	    						    ->where('products.id',"=",$product_id)
+	    							->first();
+
+	    		// $pr = DB::table('products')->select('cost')->where('id',$product_id)->first();
+	    		
+	    		
+	    		$cost = $product->cost/$product->units;
+	    		$line_total= ((int)$item['qty'])*$cost;
+
+    		
+    		  $invoiceItem = InvoiceItem::createNew();
+    		  $invoiceItem->invoice_id = $invoice->id; 
+		      $invoiceItem->product_id = $product_id;
+		      $invoiceItem->product_key = $product->product_key;
+		      $invoiceItem->notes = $product->notes;
+		      $invoiceItem->cost = $cost;
+		      $invoiceItem->boni = (int)$item['boni'];
+		      $invoiceItem->desc =$item['desc'];
+		      $invoiceItem->qty = (int)$item['qty'];
+		      $invoiceItem->line_total=$line_total;
+		      $invoiceItem->tax_rate = 0;
+		      $invoiceItem->save();
+		  
+    	}
+    	
+
+    	// $invoiceItems =DB::table('invoice_items')
+    	// 			   ->select('notes','cost','qty','boni','desc')
+    	// 			   ->where('invoice_id','=',$invoice->id)
+    	// 			   ->get(array('notes','cost','qty','boni','desc'));
+
+    	// $date = new DateTime($invoice->deadline);
+    	// $dateEmision = new DateTime($invoice->invoice_date);
+    	// $account  = array('name' =>$branch->name,'nit'=>'1006909025' );
+    	// $ice = $invoice->amount-$invoice->fiscal;
+
+    	// $factura  = array('invoice_number' => $invoice->invoice_number,
+    	// 				'control_code'=>$invoice->control_code,
+    	// 				'invoice_date'=>$dateEmision->format('d-m-Y'),
+    	// 				'amount'=>number_format((float)$invoice->amount, 2, '.', ''),
+    	// 				'subtotal'=>number_format((float)$invoice->subtotal, 2, '.', ''),
+    	// 				'fiscal'=>number_format((float)$invoice->fiscal, 2, '.', ''),
+    	// 				'client'=>$client,
+    	// 				// 'id'=>$invoice->id,
+
+    	// 				'account'=>$account,
+    	// 				'law' => $invoice->law,
+    	// 				'invoice_items'=>$invoiceItems,
+    	// 				'address1'=>str_replace('+', '°', $invoice->address1),
+    	// 				// 'address2'=>str_replace('+', '°', $invoice->address2),
+    	// 				'address2'=>$invoice->address2,
+    	// 				'num_auto'=>$invoice->number_autho,
+    	// 				'fecha_limite'=>$date->format('d-m-Y'),
+    	// 				// 'fecha_emsion'=>,
+    	// 				'ice'=>number_format((float)$ice, 2, '.', '')	
+    					
+    	// 				);
+
+    	// $invoic = Invoice::scope($invoice_number)->withTrashed()->with('client.contacts', 'client.country', 'invoice_items')->firstOrFail();
+		// $d  = Input::all();
+		//en caso de problemas irracionales me refiero a que se jodio  
+		// $input = Input::all();
+		// $client_id = $input['client_id'];
+		// $client = DB::table('clients')->select('id','nit','name')->where('id',$input['client_id'])->first();
+
+		$datos = array('resultado ' => "0");
+		//colocar una excepcion en caso de error
+
+		// return Response::json($datos);
+		return Response::json($datos);
+       
+    }
+
+	// public function listaOffline()
+ //    {
+ //    	$user_id = Auth::user()->getAuthIdentifier();
+ //    	$user = DB::table('users')->select('account_id','price_type_id','branch_id','id','groups')->where('id',$user_id)->first();
+ //    	// $grupo = DB::table('groups')->where('account_id','=',$user->account_id)
+ //    	// 							->where('user_id','=',$user->id)
+ //    	// 							->first();
+ //    	$grupo = explode(',',$user->groups);
+ //    	$array =array();
+ //    	foreach ($grupo as $idgrupo) {
+
+ //    		$idg = $idgrupo+1;
+ //    		$cliente = DB::table('clients')->select('id','name','nit')
+ //    							->where('account_id',$user->account_id)
+ //    							->where('group_id',$idg)
+ //    							->first();
+ //    		$array[] =$cliente;
+ //    		# code...
+ //    	}
+
+ //    	$clients = DB::table('clients')->select('id','name','nit')->where('account_id',$user->account_id)->get(array('id','name','nit'));
+    
+ //    	$products = DB::table('products')
+ //    							->join('prices',"product_id","=",'products.id')
+ //    							->select('products.id','products.product_key','products.notes','prices.cost','products.ice','products.units','products.cc')
+ //    						    ->where('products.account_id','=',$user->account_id)
+ //    							->where('prices.price_type_id','=',$user->price_type_id)
+ //    							->get(array('products.id','product_key','notes','cost','ice','units','cc'));
+
+ //    	// $ice = DB::table('tax_rates')->select('rate')
+ //    	// 							 // ->where('account_id','=',$user->account_id)
+ //    	// 							 ->where('name','=','ice')
+ //    	// 							 ->first();
+
+
+ //    	$mensaje = array(
+ //    			// 'clientes' => $clients,
+ //    			'clientes' =>$array,
+ //    			'user' =>$user,
+ //    			'user_id' => $user_id,
+ //    			'user'=> $user,
+ //    			'grupo'=> $grupo
+ //    			// 'productos' => $products
+ //    			//'ice'=>$ice->rate
+ //    		);
+ //    	return Response::json($mensaje);
+
+ //    }
+  //    public function datosOffline()
+  //   {
+		// $user_id = Auth::user()->getAuthIdentifier();
+  //   	$user = DB::table('users')->select('account_id','price_type_id','branch_id','id','groups')->where('id',$user_id)->first();
+  //   	// $grupo = DB::table('groups')->where('account_id','=',$user->account_id)
+  //   	// 							->where('user_id','=',$user->id)
+  //   	// 							->first();
+  //   	$grupo = explode(',',$user->groups);
+  //   	$array =array();
+  //   	foreach ($grupo as $idgrupo) {
+
+  //   		$idg = $idgrupo+1;
+  //   		$cliente = DB::table('clients')->select('id','name','nit')
+  //   							->where('account_id',$user->account_id)
+  //   							->where('group_id',$idg)
+  //   							->first();
+  //   		$array[] =$cliente;
+  //   		# code...
+  //   	}
+
+  //   	// $clients = DB::table('clients')->select('id','name','nit','public_id')->where('account_id',$user->account_id)->get(array('id','name','nit','public_id'));
+    	
+  //   	$products = DB::table('products')
+  //   							->join('prices',"product_id","=",'products.id')
+  //   							->select('products.id','products.product_key','products.notes','prices.cost','products.ice','products.units','products.cc')
+  //   						    ->where('products.account_id','=',$user->account_id)
+  //   							->where('prices.price_type_id','=',$user->price_type_id)
+  //   							->get(array('products.id','product_key','notes','cost','ice','units','cc'));
+
+  //   	$sucursal = DB::table('branches')
+  //   						->select('name','address1','address2','number_autho','deadline','key_dosage','activity_pri','invoice_number_counter','law')
+  //   						->where('id','=',$user->branch_id)
+  //   						->first();
+
+  //   	$ice = DB::table('tax_rates')->select('rate')
+  //   								 // ->where('account_id','=',$user->account_id)
+  //   								 ->where('name','=','ice')
+  //   								 ->first();
+
+
+  //   	$mensaje = array(
+  //   			// 'clientes' => $array,//esta lista estara dentro del menu principal
+  //   			'sucursal'=> $sucursal,
+  //   			'productos' => $products,
+  //   			'ice'=>$ice->rate
+  //   		);
+  //   	return Response::json($mensaje);    	
+
+  //   }
+    // public function guardarFaturasOffline(){
+
+    // }
     public function guardarFacturaOffline()
     {
     	/* David 

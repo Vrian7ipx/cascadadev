@@ -1,4 +1,4 @@
- <form action="http://localhost/cascada_ventas/public/ventas">
+ <form action="http://localhost/cascada_ventas/public/ventas" method="POST">
   First name:<br>
   <input type="text" name="name" value="Mickey">
   <br>
