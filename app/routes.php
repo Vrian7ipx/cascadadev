@@ -10,6 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+
 Route::resource('proof','ProofController');
 Route::get('/', 'UserController@login');
 Route::post('/contact_submit', 'HomeController@doContactUs');
@@ -41,7 +42,7 @@ Route::group(array('before' => 'auth.basic'), function()
 {
   Route::get('facturas','InvoiceController@facturas');
   Route::get('factura/{numeroFactura}','InvoiceController@factura');
-  Route::get('printFactura/{numeroFactura}','InvoiceController@printFactura');
+  Route::get('printFactura/{numeroFactura}','InvoiceController@printFactura');  
   Route::post('guardarFactura','InvoiceController@guardarFactura');
   Route::get('loginPOS','InvoiceController@listasCuenta');
   Route::get('cliente/{nit}','ClientController@cliente');
@@ -50,6 +51,7 @@ Route::group(array('before' => 'auth.basic'), function()
   Route::get('obtenerFactura/{public_id}','ClientController@obtenerFactura');
   Route::get('mensajeCliente','ClientController@mensaje');
 
+  Route::get('saveoffline','InvoiceController@saveOfflineInvoices');
   //cliente offline
   Route::get('clientesOffline','InvoiceController@listaOffline');
 
