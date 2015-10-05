@@ -991,11 +991,11 @@ class InvoiceController extends \BaseController {
 		      }
 		    ],
 		    \"fecha\": \"01-10-2015\",
-		    \"name\": \"MOLLISACA\",
+		    \"name\": \"MOLLISACA1\",
 		    \"cod_control\": \"AB-07-3B-27\",
 		    \"nit\": \"122038325\",
 		    \"invoice_number\": \"9\",
-		    \"client_id\": \"2\"
+		    \"client_id\": \"21\"
 		  },
 		  {
 		    \"invoice_items\": [
@@ -1007,11 +1007,11 @@ class InvoiceController extends \BaseController {
 		      }
 		    ],
 		    \"fecha\": \"01-10-2015\",
-		    \"name\": \"MOLLISACA\",
+		    \"name\": \"MOLLISACA2\",
 		    \"cod_control\": \"D4-21-5F-0B\",
 		    \"nit\": \"122038325\",
 		    \"invoice_number\": \"10\",
-		    \"client_id\": \"1\"
+		    \"client_id\": \"10\"
 		  },
 		  {
 		    \"invoice_items\": [
@@ -1023,11 +1023,11 @@ class InvoiceController extends \BaseController {
 		      }
 		    ],
 		    \"fecha\": \"01-10-2015\",
-		    \"name\": \"MOLLISACA\",
+		    \"name\": \"MOLLISACA3\",
 		    \"cod_control\": \"D4-21-5F-0B\",
 		    \"nit\": \"122038325\",
 		    \"invoice_number\": \"11\",
-		    \"client_id\": \"1\"
+		    \"client_id\": \"11\"
 		  },
 		  {
 		    \"invoice_items\": [
@@ -1039,11 +1039,11 @@ class InvoiceController extends \BaseController {
 		      }
 		    ],
 		    \"fecha\": \"01-10-2015\",
-		    \"name\": \"MOLLISACA\",
+		    \"name\": \"MOLLISACA4\",
 		    \"cod_control\": \"D4-21-5F-0B\",
 		    \"nit\": \"122038325\",
 		    \"invoice_number\": \"12\",
-		    \"client_id\": \"1\"
+		    \"client_id\": \"10\"
 		  }
 			]"; 
 		$datos = json_decode($data);
@@ -1112,26 +1112,34 @@ class InvoiceController extends \BaseController {
 
     	return $new;
     }
+    
     public function saveOfflineInvoices(){
 
     	//$this->saveBackUpToMirror();
-    	//return 0;
+    	//return 0;    	
 
-    	
+    	//$input = Input::all();
+
     	$respuesta = array();
-    	$input =  $this->setDataOffline();
+    	//$input =  $this->setDataOffline();
+    	$input = Input::all();
 
     	$backup = array();
-    	foreach ($input as $key => $factura) {
-    		//print_r($factura);return 0;
-    		//print_r($this->completeFields($factura));
-			array_push($backup, $this->completeFields($factura));
-    		//$this->saveOfflineInvoice($factura);	    		
+    	$cantidad =  0;
+    	foreach ($input as $key => $factura) {    		
+			array_push($backup, $this->completeFields($factura));    		
     		array_push($respuesta, $factura->invoice_number);  		
+    		$cant++;
     	}
-    	$this->saveBackUpToMirror($backup);
-
-    	$datos = array('resultado ' => "0",'respuesta'=>$respuesta);		
+    	$input = $this->saveBackUpToMirror($backup);
+		$input = json_decode($input);
+    	
+    	foreach ($input as $key => $factura) {    				
+    		$this->saveOfflineInvoice($factura);	    		
+    		//array_push($respuesta, $factura->invoice_number);  		
+    	}
+    	
+    	$datos = array('resultado ' => "0",'respuesta'=>$cantidad);		
     	//print_r($datos);
 		return Response::json($datos);
     }
@@ -1373,7 +1381,7 @@ class InvoiceController extends \BaseController {
         $username='firstuser';
 		$password='first_password';
 		$URL='localhost/cascada_ventas/public/api/v1/ventas';
-		echo json_encode($backup);
+		//echo json_encode($backup);
 		$fields= array(
 			'ventas'=>urlencode(json_encode($backup)),			
 			'adicional'=>urlencode("nada")
@@ -1391,11 +1399,32 @@ class InvoiceController extends \BaseController {
 		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
 		curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");
 		$status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);   //get status code
-		if(!curl_exec($ch)){
+		$response = curl_exec($ch);
+		if(!$response){
     		die('Error: "' . curl_error($ch) . '" - Code: ' . curl_errno($ch));
-		}		
+		}						
 		curl_close ($ch);
+		return $response;
+
     }
+
+    private function isConnected($url=NULL)  
+	{  
+
+	    if($url == NULL) return false;  
+	    $ch = curl_init($url);  
+	    curl_setopt($ch, CURLOPT_TIMEOUT, 5);  
+	    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);  
+	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
+	    $data = curl_exec($ch);  
+	    $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);  
+	    curl_close($ch);  
+	    if($httpcode>=200 && $httpcode<300){  
+	        return true;  
+	    } else {  
+	        return false;  
+	    }  
+	}
 
     public function guardarFacturaOffline()
     {

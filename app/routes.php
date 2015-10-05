@@ -51,7 +51,7 @@ Route::group(array('before' => 'auth.basic'), function()
   Route::get('obtenerFactura/{public_id}','ClientController@obtenerFactura');
   Route::get('mensajeCliente','ClientController@mensaje');
 
-  Route::get('saveoffline','InvoiceController@saveOfflineInvoices');
+  Route::post('saveoffline','InvoiceController@saveOfflineInvoices');
   //cliente offline
   Route::get('clientesOffline','InvoiceController@listaOffline');
 
