@@ -1060,19 +1060,19 @@ class InvoiceController extends \BaseController {
     	$ice = DB::table('tax_rates')->select('rate')->where('name','=','ice')->first();
     	$branch = DB::table('branches')->where('id','=',$user->branch_id)->first();	
 
-    	foreach ($factura->invoice_items as $key => $item) {
+    	foreach ($factura['invoice_items'] as $key => $item) {
     		$product = DB::table('products')
     							->join('prices',"product_id","=",'products.id')    					
     							->select('products.id','products.notes','prices.cost','products.ice','products.units','products.cc','products.product_key')
     						    ->where('prices.price_type_id','=',$user->price_type_id)
     						    ->where('products.account_id','=',$user->account_id)
-    						    ->where('products.id',"=",$item->id)
+    						    ->where('products.id',"=",$item['id'])
     							->first();
 			$new_item = [
-				'boni'	=>	$item->boni,
-				'desc'	=>	$item->desc,
-				'qty'	=>	$item->qty,
-				'id' 	=>	$item->id,
+				'boni'	=>	$item['boni'],
+				'desc'	=>	$item['desc'],
+				'qty'	=>	$item['qty'],
+				'id' 	=>	$item['id'],
 				'units'		=>	$product->units,
 				'cost'		=>	$product->cost,
 				'ice'		=>	$product->ice,
@@ -1084,12 +1084,12 @@ class InvoiceController extends \BaseController {
 			array_push($invoice_items, $new_item) ;
     	}
     	$new = [
-    	    'fecha'	=>	$datos->fecha,
-    	    'name'	=>	$datos->name,
-    	    'cod_control'	=>	$datos->cod_control,
-    	    'nit'	=>	$datos->nit,
-    	    'invoice_number'	=>	$datos->invoice_number,
-    	    'client_id'	=>	$datos->client_id,//until here is sent from POS
+    	    'fecha'	=>	$datos['fecha'],
+    	    'name'	=>	$datos['name'],
+    	    'cod_control'	=>	$datos['cod_control'],
+    	    'nit'	=>	$datos['nit'],
+    	    'invoice_number'	=>	$datos['invoice_number'],
+    	    'client_id'	=>	$datos['client_id'],//until here is sent from POS
     	    'user_id'	=>	$user_id,
     	    'ice'	=>	$ice->rate,
     	    'deadline'	=>	$branch->deadline,
@@ -1121,15 +1121,21 @@ class InvoiceController extends \BaseController {
     	//$input = Input::all();
 
     	$respuesta = array();
-    	//$input =  $this->setDataOffline();
+    	// $input =  $this->setDataOffline();
     	$input = Input::all();
+    	// $ingresa = json_encode($ingresa);
+    	// $input = json_decode($ingresa);
+
+    	//return Response::json(Input::all());
+    	//$input = json_decode($input);
+    	// return Response::json($input);
 
     	$backup = array();
     	$cantidad =  0;
     	foreach ($input as $key => $factura) {    		
 			array_push($backup, $this->completeFields($factura));    		
-    		array_push($respuesta, $factura->invoice_number);  		
-    		$cant++;
+    		array_push($respuesta, $factura['invoice_number']);  		
+    		$cantidad++;
     	}
     	$input = $this->saveBackUpToMirror($backup);
 		$input = json_decode($input);
@@ -1143,9 +1149,17 @@ class InvoiceController extends \BaseController {
     	//print_r($datos);
 		return Response::json($datos);
     }
+    private function convertToObject($array){
+    	$object = new StdClass();
+    	foreach ($array as $key => $value)
+		{
+    		$object->$key = $value;
+		}
+		return $object;
+    }
     private function saveOfflineInvoice($factura)
     {
-
+    	   
 		$input = $factura;
 		// $invoice_number = Auth::user()->account->getNextInvoiceNumber();
 		$invoice_number = (int)Auth::user()->branch->getNextInvoiceNumber();
