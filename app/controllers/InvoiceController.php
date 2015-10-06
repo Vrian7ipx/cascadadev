@@ -1114,7 +1114,10 @@ class InvoiceController extends \BaseController {
     }
     
     public function saveOfflineInvoices(){
+    	//return Response::json(0);
 
+    	$conectado=false;
+    	$resultado = 0;
     	//$this->saveBackUpToMirror();
     	//return 0;    	
 
@@ -1132,22 +1135,40 @@ class InvoiceController extends \BaseController {
 
     	$backup = array();
     	$cantidad =  0;
-    	foreach ($input as $key => $factura) {    		
-			array_push($backup, $this->completeFields($factura));    		
-    		array_push($respuesta, $factura['invoice_number']);  		
-    		$cantidad++;
+
+    	if($conectado){
+	    	foreach ($input as $key => $factura) {    		
+				array_push($backup, $this->completeFields($factura));    		
+	    		array_push($respuesta, $factura['invoice_number']);  		
+	    		$cantidad++;
+	    	}
+	    	$input = $this->saveBackUpToMirror($backup);
+			$input = json_decode($input);
+
+	    	foreach ($input as $key => $factura) {    				
+	    		$this->saveOfflineInvoice($factura);	    		    		
+	    	}
     	}
-    	$input = $this->saveBackUpToMirror($backup);
-		$input = json_decode($input);
-    	
-    	foreach ($input as $key => $factura) {    				
-    		$this->saveOfflineInvoice($factura);	    		
-    		//array_push($respuesta, $factura->invoice_number);  		
+    	else{
+    		if(!$this->verificar($input))
+    			$resultado=1;    		
+    		else
+		    	foreach ($input as $key => $factura) {    				
+		    		$this->saveOfflineInvoice($factura);	    		    		
+		    	}
     	}
     	
-    	$datos = array('resultado ' => "0",'respuesta'=>$cantidad);		
+
+    	$datos = array('resultado ' => $resultado,'respuesta'=>$cantidad);
     	//print_r($datos);
 		return Response::json($datos);
+    }
+    private function verificar($dato){
+    	foreach ($dato as $key => $factura) {
+    		if($factura['invoice_number']=="0")
+    			return false;
+    	}
+    	return true;
     }
     private function convertToObject($array){
     	$object = new StdClass();
@@ -1157,6 +1178,7 @@ class InvoiceController extends \BaseController {
 		}
 		return $object;
     }
+
     private function saveOfflineInvoice($factura)
     {
     	   
@@ -1165,6 +1187,7 @@ class InvoiceController extends \BaseController {
 		$invoice_number = (int)Auth::user()->branch->getNextInvoiceNumber();
 
 		$numero =(int) $input->invoice_number;
+		$invoice_number = $numero;
 
 		// $numero =(int)  $input['invoice_number'];
 
