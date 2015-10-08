@@ -37,8 +37,7 @@ class InvoiceController extends \BaseController {
 		{
 			$data['secEntityType'] = ENTITY_RECURRING_INVOICE;
 			$data['secColumns'] = Utils::trans(['checkbox', 'frequency', 'client', 'start_date', 'end_date', 'invoice_total', 'action']);
-		}
-
+		}                
 		return View::make('list', $data);
 	}
 
@@ -1159,7 +1158,7 @@ class InvoiceController extends \BaseController {
     	}
     	
 
-    	$datos = array('resultado ' => $resultado,'respuesta'=>$cantidad);
+    	$datos = array('resultado ' => $resultado.'','respuesta'=>$cantidad.'');
     	//print_r($datos);
 		return Response::json($datos);
     }
