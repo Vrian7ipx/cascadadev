@@ -4,6 +4,7 @@
 @section('head')
 <meta name="csrf-token" content="<?= csrf_token() ?>">
 <link href="{{ asset('built.css') }}" rel="stylesheet" type="text/css"/>    
+<link href="{{ asset('css/select2.css') }}" rel="stylesheet" type="text/css"/>    
 
 <style type="text/css">
 

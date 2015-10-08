@@ -103,6 +103,7 @@ class UserController extends BaseController {
         ];
 
         $data = array_merge($data, self::getViewModel());
+        //print_r($data['allgroups']);return 0;
         return View::make('users.edit', $data);   
     }
 
@@ -148,7 +149,7 @@ class UserController extends BaseController {
           'title' => trans('texts.add_user')
         ];
 
-        $data = array_merge($data, self::getViewModel());   
+        $data = array_merge($data, self::getViewModel());           
         return View::make('users.edit', $data);
     }
 
@@ -158,7 +159,7 @@ class UserController extends BaseController {
             'branches' => Branch::where('account_id', '=', Auth::user()->account_id)->where('public_id', '>', 0)->orderBy('public_id')->get(),
             'price_types' => PriceType::orderBy('id')->get(),
 
-            'allgroups' => Group::orderBy('id')->get(array('name')),
+            'allgroups' => Group::orderBy('id')->get(array('id','name')),
         ];
     }
 
@@ -214,6 +215,7 @@ class UserController extends BaseController {
 
             $user->price_type_id = Input::get('price_type_id');
 
+           
             $aux = implode(",", Input::get('groups'));
             $user->groups = $aux;
 
@@ -249,8 +251,7 @@ class UserController extends BaseController {
             else
             {
             $user->branch_id = 1;
-            }
-
+            } 
             $aux = implode(",", Input::get('groups'));
             $user->groups = $aux;
 
@@ -265,7 +266,7 @@ class UserController extends BaseController {
 
         $user->save();
 
-        if (!$user->confirmed)
+        /*if (!$user->confirmed)
         {
             $this->userMailer->sendConfirmation($user, Auth::user());        
             $message = trans('texts.sent_invite');
@@ -273,7 +274,8 @@ class UserController extends BaseController {
         else
         {
             $message = trans('texts.updated_user');
-        }
+        }*/
+        $message = "hola";
 
         Session::flash('message', $message);
 

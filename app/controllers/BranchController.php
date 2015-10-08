@@ -99,8 +99,8 @@ class BranchController extends \BaseController {
     $branch->country_id = Input::get('country_id') ? Input::get('country_id') : null;  
     $branch->industry_id = Input::get('industry_id') ? Input::get('industry_id') : null;
 
-    $branch->number_autho = Input::get('number_autho');
-    $branch->deadline = Input::get('deadline');      
+    $branch->number_autho = Input::get('number_autho');    
+    $branch->deadline = date("Y-m-d", strtotime(Input::get('deadline')));     
     $branch->key_dosage = Input::get('key_dosage');
 
     $branch->activity_pri = Input::get('activity_pri');      

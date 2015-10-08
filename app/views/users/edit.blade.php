@@ -55,6 +55,24 @@
       {
         $gruposlist2 = array();
       }
+      
+      $lista = array();
+      ?>
+        <script type="text/javascript">
+            items =[];
+            i = 0;
+        </script>              
+          <?php
+      foreach ($gruposlist2 as  $key => $grup)
+      {
+          ?>
+        <script type="text/javascript">
+            items[i] = '{{ $grup }}';
+            i = i +1;
+        </script>              
+          <?php
+      }
+      
 
 
 ?>
@@ -82,14 +100,17 @@
           </div>
           
           <div class="col-md-8">
-
-            {{ Form::select('groups[]', $gruposlist, $gruposlist2, array('multiple' => true)) }}
+            
+            <select class="select_multiple" multiple="multiple" style="width:100%" name='groups[]'>                
+                @foreach ($allgroups as $gru)		  	
+                <option value="{{ $gru->id }}">{{ $gru->name }}</option>
+		@endforeach                 
+              </select> 
           </div>
         </div>
 
     </div>
-
-
+       
 
   </div>
 
@@ -97,7 +118,9 @@
 
   <script type="text/javascript">
 
-
+    $(".select_multiple").select2();
+   console.log('itesm->'+items);
+    $(".select_multiple").val(items).trigger("change");
 
   var PlanetsModel = function() {
       

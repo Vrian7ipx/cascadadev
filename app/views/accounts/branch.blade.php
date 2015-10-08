@@ -49,7 +49,18 @@
       {{ Former::legend('dosificación') }}
 
       {{ Former::text('number_autho')->label('número de autorización') }}
-      {{ Former::text('deadline')->label('fecha límite') }}
+      {{-- Former::text('deadline')->label('fecha límite')--}}           
+      {{--Former::label('fecha límite')--}}      
+      <div class="form-group required">
+      <div class='control-label col-md-4'>
+          <b>Fecha limite </b>
+      </div>
+      <div class='col-md-8'>
+          <input id="deadline" class="form-control" type="text" name="deadline" />
+      </div>
+      </div>      
+      
+      
       {{ Former::textarea('key_dosage')->label('llave dosificación')->rows(3)}}
 
       {{ Former::legend('Leyenda') }}
@@ -69,7 +80,9 @@
   {{ Former::close() }}
 
     <script type="text/javascript">
-
+        $('#deadline').datepicker();
+        $('#deadline').datepicker({ dateFormat: 'dd-mm-YY'}).datepicker("setDate",'{{ $branch->deadline}}');
+        
     $(function() {
       $('#country_id').combobox();
     });

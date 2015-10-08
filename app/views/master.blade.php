@@ -29,6 +29,7 @@
     <link href="http://facturavirtual.com.bo" rel="canonical"></link>
 
     <script src="{{ asset('built.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/select2.js') }}" type="text/javascript"></script>
 
     <script type="text/javascript">
     var NINJA = NINJA || {};      

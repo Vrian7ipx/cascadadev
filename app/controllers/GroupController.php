@@ -23,7 +23,8 @@ class GroupController extends \BaseController {
               '.trans('texts.select').' <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a href="' . URL::to('groups/'.$model->public_id) . '/edit">'.uctrans('texts.edit_group').'</a></li>                
+            <li><a href="' . URL::to('groups/'.$model->public_id) . '">Ver Grupo</a></li>
+            <li><a href="' . URL::to('groups/'.$model->public_id) . '/edit">'.uctrans('texts.edit_group').'</a></li>
             <li class="divider"></li>
             <li><a href="' . URL::to('groups/'.$model->public_id) . '/archive">'.uctrans('texts.archive_group').'</a></li>
           </ul>
@@ -32,7 +33,19 @@ class GroupController extends \BaseController {
       ->orderColumns(['code', 'name', 'text'])
       ->make();           
   }
-
+  public function show($id)
+  {
+      $group = Group::scope($id)->firstOrFail();
+      print_r($group->id);
+      $clients = Client::where('group_id','=',$group->id)->select('clients.id','clients.nit','clients.name','clients.public_id')->get();
+      $clientes = array();
+      foreach ($clients as $key => $client)
+      {
+          array_push($clientes, $client);
+      }
+      
+      return View::make('groups.show', array('group'=>$group, 'clients'=> $clientes,'showBreadcrumbs' => false));
+  }        
   public function edit($publicId)
   {
     $data = [
