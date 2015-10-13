@@ -163,7 +163,7 @@ class InvoiceController extends \BaseController {
 		$invoice->start_date = Utils::fromSqlDate($invoice->start_date);
 		$invoice->end_date = Utils::fromSqlDate($invoice->end_date);
 		$invoice->is_pro = Auth::user()->isPro();
-
+                
   	$contactIds = DB::table('invitations')
 			->join('contacts', 'contacts.id', '=','invitations.contact_id')
 			->where('invitations.invoice_id', '=', $invoice->id)
@@ -202,8 +202,11 @@ class InvoiceController extends \BaseController {
 				}
 				break;
 			}
-		}
-	
+		}                
+                print_r($data['invoice']);
+                echo "<br><br><br><br><br>";
+                print_r($data['products']);
+                return 0;
 		return View::make('invoices.edit', $data);
 	}
 
@@ -583,7 +586,8 @@ class InvoiceController extends \BaseController {
     			
 
     	}
-    	$fiscal = $amount -$bonidesc-$icetotal;
+    	//$fiscal = $amount -$bonidesc-$icetotal;
+        $fiscal = $subtotal -$bonidesc-$icetotal;
 
     	$balance= $amount;
     	/////////////////////////hasta qui esta bien al parecer hacer prueba de que fuciona el join de los productos XD
@@ -1160,7 +1164,7 @@ class InvoiceController extends \BaseController {
 
     	$datos = array('resultado ' => $resultado.'','respuesta'=>$cantidad.'');
     	//print_r($datos);
-		return Response::json($datos);
+		return Response::json($datos);  
     }
     private function verificar($dato){
     	foreach ($dato as $key => $factura) {

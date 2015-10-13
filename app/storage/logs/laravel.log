@@ -1458,3 +1458,21 @@
  {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/users/176/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":4} []
 [2015-10-07 18:07:25] development.ERROR: ReferenceError: items is not defined
  {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/users/176/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":4} []
+[2015-10-08 14:30:34] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/3","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":1} []
+[2015-10-08 14:30:52] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/3","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":2} []
+[2015-10-08 14:30:59] development.ERROR: TypeError: model.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/3","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":3} []
+[2015-10-08 14:31:12] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/3","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":4} []
+[2015-10-08 14:37:29] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/3","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":5} []
+[2015-10-08 14:37:43] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/3","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":6} []
+[2015-10-08 14:45:30] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/4","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":7} []
+[2015-10-08 14:48:18] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/4","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":8} []
+[2015-10-08 14:50:17] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/4","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":9} []

@@ -38,8 +38,7 @@ class Utils
 	}
 
 	public static function isAdmin()
-	{
-            return true;
+	{            
 		return Auth::check() && Auth::user()->isAdmin();
 	}
 

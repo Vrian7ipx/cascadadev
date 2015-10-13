@@ -80,8 +80,14 @@
   {{ Former::close() }}
 
     <script type="text/javascript">
-        $('#deadline').datepicker();
-        $('#deadline').datepicker({ dateFormat: 'dd-mm-YY'}).datepicker("setDate",'{{ $branch->deadline}}');
+        $('#deadline').datepicker();        
+        var queryDate = '{{ $branch->deadline}}',
+    dateParts = queryDate.match(/(\d+)/g)
+    realDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);  
+                                    // months are 0-based!
+
+$('#deadline').datepicker({ dateFormat: 'dd-mm-yy' }); // format to show
+$('#deadline').datepicker('setDate', realDate);
         
     $(function() {
       $('#country_id').combobox();

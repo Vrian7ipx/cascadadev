@@ -2,7 +2,10 @@
 
 class ProofController extends \BaseController {
 
-	public function index(){		        
+        public function index(){
+            return View::make('factura');
+        }
+	public function index2(){		        
     	extract($_POST);
         $username='firstuser';
 		$password='first_password';
@@ -31,7 +34,7 @@ class ProofController extends \BaseController {
 
 
 		curl_close ($ch);
-	}	
+	}	        
 }
 
 ?>
