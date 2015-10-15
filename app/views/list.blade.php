@@ -54,11 +54,35 @@
     	->setOptions('sPaginationType', 'bootstrap')
     	->render('datatable') }}
     
-    {{ Former::close() }}
+    {{ Former::close() }}    
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Alerta</h4>
+      </div>
+      <div class="modal-body">
+        <p>Actualice su llave de doscificación.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Aceptar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
     <script type="text/javascript">
-
-	function submitForm(action) {
+        
+        function cancel(){
+            alert("Actualice su llave de doscificacion");
+        }
+	function submitForm(action) {            
 		if (action == 'delete') {
 			if (!confirm('¿Está seguro?')) {
 				return;
@@ -156,6 +180,6 @@
 		$('#archive > button').prop('disabled', !checked);	
 	}
 
-
 	
+
 @stop

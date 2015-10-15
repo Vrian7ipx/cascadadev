@@ -1476,3 +1476,219 @@
  {"context":"JavaScript","user_id":1,"user_name":"-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/4","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":8} []
 [2015-10-08 14:50:17] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
  {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/4","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":9} []
+[2015-10-13 21:45:16] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":1} []
+[2015-10-13 21:48:11] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":2} []
+[2015-10-13 21:48:20] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":3} []
+[2015-10-13 21:53:51] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":4} []
+[2015-10-13 21:56:40] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":5} []
+[2015-10-13 21:59:01] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":6} []
+[2015-10-13 22:03:10] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":7} []
+[2015-10-13 22:04:14] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":8} []
+[2015-10-13 22:05:16] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":9} []
+[2015-10-13 22:06:29] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":10} []
+[2015-10-13 22:07:52] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":11} []
+[2015-10-13 22:08:50] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":12} []
+[2015-10-13 22:10:18] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":13} []
+[2015-10-13 22:10:57] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":14} []
+[2015-10-13 22:11:54] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":15} []
+[2015-10-13 22:12:12] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":16} []
+[2015-10-13 22:19:12] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":17} []
+[2015-10-13 22:22:02] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":18} []
+[2015-10-13 22:26:49] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":19} []
+[2015-10-13 22:32:34] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":20} []
+[2015-10-13 22:32:54] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":21} []
+[2015-10-13 22:34:25] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":22} []
+[2015-10-13 22:35:26] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":23} []
+[2015-10-13 22:36:27] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":24} []
+[2015-10-13 22:39:31] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":25} []
+[2015-10-13 22:41:36] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":26} []
+[2015-10-13 22:41:54] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":27} []
+[2015-10-13 22:42:04] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":28} []
+[2015-10-13 22:42:18] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":29} []
+[2015-10-13 22:43:03] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":30} []
+[2015-10-13 22:43:09] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":31} []
+[2015-10-13 22:46:40] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":32} []
+[2015-10-13 22:46:54] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":33} []
+[2015-10-13 22:47:26] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":34} []
+[2015-10-13 22:47:37] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":35} []
+[2015-10-13 22:48:42] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":36} []
+[2015-10-13 22:50:05] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":37} []
+[2015-10-14 14:12:20] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":1} []
+[2015-10-14 15:06:15] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":2} []
+[2015-10-14 15:10:10] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":3} []
+[2015-10-14 15:11:24] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":4} []
+[2015-10-14 15:13:10] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":5} []
+[2015-10-14 15:27:28] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":6} []
+[2015-10-14 15:31:15] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":7} []
+[2015-10-14 15:36:36] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":8} []
+[2015-10-14 15:37:08] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":9} []
+[2015-10-14 15:37:46] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":10} []
+[2015-10-14 15:40:57] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":11} []
+[2015-10-14 15:41:10] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":12} []
+[2015-10-14 15:41:30] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":13} []
+[2015-10-14 15:41:48] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":14} []
+[2015-10-14 15:43:32] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":15} []
+[2015-10-14 15:44:08] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":16} []
+[2015-10-14 15:44:52] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":17} []
+[2015-10-14 15:45:12] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":18} []
+[2015-10-14 15:45:45] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":19} []
+[2015-10-14 15:45:54] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":20} []
+[2015-10-14 15:47:19] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":21} []
+[2015-10-14 15:47:54] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":22} []
+[2015-10-14 15:48:14] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":23} []
+[2015-10-14 15:51:39] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":24} []
+[2015-10-14 15:52:37] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":25} []
+[2015-10-14 15:54:11] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":26} []
+[2015-10-14 15:54:30] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":27} []
+[2015-10-14 15:55:04] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":28} []
+[2015-10-14 16:00:21] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":29} []
+[2015-10-14 16:01:08] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":30} []
+[2015-10-14 16:01:43] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":31} []
+[2015-10-14 16:04:41] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":32} []
+[2015-10-14 16:06:01] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":33} []
+[2015-10-14 16:07:41] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":34} []
+[2015-10-14 16:10:00] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":35} []
+[2015-10-14 16:10:22] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":36} []
+[2015-10-14 16:11:25] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":37} []
+[2015-10-14 16:18:34] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":38} []
+[2015-10-14 16:18:47] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":39} []
+[2015-10-14 16:25:00] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":40} []
+[2015-10-14 16:25:25] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":41} []
+[2015-10-14 16:26:36] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":42} []
+[2015-10-14 16:38:09] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":43} []
+[2015-10-14 16:40:31] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":44} []
+[2015-10-14 16:41:00] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":45} []
+[2015-10-14 16:57:31] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":46} []
+[2015-10-14 19:48:24] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":1} []
+[2015-10-14 19:50:33] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":2} []
+[2015-10-14 19:50:55] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":1} []
+[2015-10-14 19:51:30] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":2} []
+[2015-10-14 19:54:41] development.ERROR: TypeError: o is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/1/edit","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":3} []
+[2015-10-14 20:21:19] development.ERROR: SyntaxError: illegal character
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/clients","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":4} []
+[2015-10-14 20:21:20] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/4","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":4} []
+[2015-10-14 20:22:26] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/3","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":5} []
+[2015-10-14 20:32:36] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/3","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":6} []
+[2015-10-14 20:32:43] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/4","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":7} []
+[2015-10-14 20:33:22] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/3","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":8} []
+[2015-10-14 20:35:01] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/4","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":9} []
+[2015-10-14 20:35:21] development.ERROR: TypeError: $(...).onclick is not a function
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/clients","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":10} []
+[2015-10-14 20:35:44] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/4","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":11} []
+[2015-10-14 20:40:52] development.ERROR: SyntaxError: expected expression, got '<'
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/clients","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":12} []
+[2015-10-14 20:41:13] development.ERROR: SyntaxError: expected expression, got '<'
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/clients","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":13} []
+[2015-10-14 21:33:03] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/3","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":14} []
+[2015-10-14 22:14:51] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/4","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":15} []
+[2015-10-14 22:15:09] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/4","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":16} []
+[2015-10-14 22:17:03] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/4","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":17} []
+[2015-10-14 22:17:26] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/3","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":18} []
+[2015-10-14 22:20:34] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/4","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":19} []
+[2015-10-14 22:21:09] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/4","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":20} []
+[2015-10-14 22:21:21] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/4","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":21} []
+[2015-10-14 22:21:58] development.ERROR: TypeError: self.invoice(...).client(...) is undefined
+ {"context":"JavaScript","user_id":1,"user_name":"sucursal 1-Brian Barrera","url":"http://localhost/cascadadev/public/invoices/create/4","user_agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0","ip":"::1","count":22} []

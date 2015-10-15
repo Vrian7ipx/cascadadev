@@ -203,10 +203,10 @@ class InvoiceController extends \BaseController {
 				break;
 			}
 		}                
-                print_r($data['invoice']);
-                echo "<br><br><br><br><br>";
-                print_r($data['products']);
-                return 0;
+//                print_r($data['invoice']);
+//                echo "<br><br><br><br><br>";
+//                print_r($data['products']);
+//                return 0;
 		return View::make('invoices.edit', $data);
 	}
 

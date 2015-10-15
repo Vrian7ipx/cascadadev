@@ -19,7 +19,7 @@
 	{{ Former::open($url)->method($method)->addClass('warn-on-exit')->rules(array(
 		'client' => 'required',
 	)) }}	
-
+        
 	<input type="submit" style="display:none" name="submitButton" id="submitButton">
 
 	<div data-bind="with: invoice">
@@ -220,9 +220,11 @@
 
 	@if ($invoice)
 
-	<iframe id="theFrame" style="display:none" frameborder="1" width="100%" height="1180"></iframe>
-	<canvas id="theCanvas" style="display:none;width:100%;border:solid 1px #CCCCCC;"></canvas>
-
+	<iframe id="theFrame" type="text/html" src="{{asset('proof')}}"  frameborder="1" width="100%" height="1180"></iframe>
+	<!--<canvas id="theCanvas" style="display:none;width:100%;border:solid 1px #CCCCCC;"></canvas>-->
+         
+<!--<object type="text/html" data="{{asset('proof')}}" class="col-md-12"  height="600px" >
+    </object></div>-->
 	@endif
 
 	@if (!Auth::user()->account->isPro())
@@ -597,7 +599,7 @@
 		if ({{ Auth::user()->force_pdfjs ? 'false' : 'true' }} && (isFirefox || (isChrome && !isChromium))) {
 			var string = getPDFString();
 			if (!string) return;
-			$('#theFrame').attr('src', string).show();		
+			$('#theFrame2').attr('src', string).show();		
 		} else {			
 			if (isRefreshing) {
 				needsRefresh = true;

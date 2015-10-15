@@ -19,7 +19,7 @@ class ClientController extends \BaseController {
 	 * @return Response
 	 */
 	public function index()
-	{
+	{  
 		return View::make('list', array(
 			'entityType'=>ENTITY_CLIENT, 
 			'title' => trans('texts.clients'),
@@ -62,7 +62,19 @@ class ClientController extends \BaseController {
 		{
     	
     	$clients = $this->clientRepo->find(Input::get('sSearch'));
-
+        global $uss;
+        $branch = Branch::scope()->firstOrFail();
+        $uss = $branch->deadline;
+        
+        if((time()-(60*60*24)) < strtotime($branch->deadline))
+            $uss=true;
+        else 
+            $uss=false;
+        
+        
+        global $enfecha;
+        $enfecha = $uss;
+        
         return Datatable::query($clients)
     	    ->addColumn('checkbox', function($model) { return '<input type="checkbox" name="ids[]" value="' . $model->public_id . '">'; })
     	    ->addColumn('public_id', function($model) { return link_to('clients/' . $model->public_id, $model->public_id); })
@@ -72,18 +84,30 @@ class ClientController extends \BaseController {
     	    ->addColumn('created_at', function($model) { return Utils::timestampToDateString(strtotime($model->created_at)); })
     	    ->addColumn('dropdown', function($model) 
     	    { 
-    	    	return '<div class="btn-group tr-action" style="visibility:hidden;">
+    	    	$return1 = '<div class="btn-group tr-action" style="visibility:hidden;">
   							<button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
     							'.trans('texts.select').' <span class="caret"></span>
   							</button>
   							<ul class="dropdown-menu" role="menu">
-  							<li><a href="' . URL::to('invoices/create/'.$model->public_id) . '">'.trans('texts.new_invoice').'</a></li>						    						    
+  							<li><a  class="enviar_class" ';
+                //$return2=($enfecha?'href="' . URL::to('invoices/create/'.$model->public_id) . '">':' onclick="cancel()" href="#"'. '">');
+                global $enfecha;
+                global $uss;
+                if($enfecha)
+                    $return2='href="' . URL::to('invoices/create/'.$model->public_id). '">';
+                else
+                    $return2 = 'data-toggle="modal" data-target="#myModal" href="#">';
+                
+                    
+                $return3= trans('texts.new_invoice').'</a></li>
 						    <li class="divider"></li>
 						    <li><a href="' . URL::to('clients/'.$model->public_id.'/edit') . '">'.trans('texts.edit_client').'</a></li>
 						    <li class="divider"></li>
 						    <li><a href="javascript:archiveEntity(' . $model->public_id. ')">'.trans('texts.archive_client').'</a></li>
 						  </ul>
 						</div>';
+                
+                return $return1.$return2.$return3;
     	    })    	   
     	    ->make(); 
 
